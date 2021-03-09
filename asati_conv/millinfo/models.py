@@ -28,11 +28,11 @@ class Party(models.Model):
 
 class Entry(models.Model):
     mill = models.ForeignKey(Mill, on_delete=models.CASCADE)
-    party = models.ForeignKey(Party)
+    party = models.ForeignKey(Party, on_delete=models.CASCADE)
     date = models.DateField()
-    item = models.ForeignKey(Item, default=1)
+    item = models.ForeignKey(Item, default=1, on_delete=models.CASCADE)
     item_rate = models.FloatField()
     bags = models.IntegerField()
-    weight_per_bag = models.ForeignKey(Weight, default=1)
+    weight_per_bag = models.ForeignKey(Weight, default=1, on_delete=models.CASCADE)
     mill_brokage = models.FloatField(default=2)
     party_brokage = models.FloatField(default=3)
